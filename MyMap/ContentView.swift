@@ -26,7 +26,29 @@ struct ContentView: View {
             
             //奥から手前方向にレイアウト（右下基準で配置する）
             ZStack(alignment: .bottomTrailing) {
-                MapView(searchKey: displaySearchKey)
+                //マップを表示
+                MapView(searchKey: displaySearchKey, mapType: displayMapType)
+                
+                //マップ種類切り替えボタン
+                Button{
+                    //標準　→ 衛生写真　→ 衛生写真＋交通機関ラベル
+                    if displayMapType == .standard {
+                        displayMapType = .satellite
+                    }else if displayMapType == .satellite {
+                        displayMapType = .hybrid
+                    }else {
+                        displayMapType = .standard
+                    }
+                } label: {
+                    //マップアイコンの表示
+                    Image(systemName: "map")
+                        .resizable()
+                        .frame(width: 35.0, height: 35.0)
+                } //Buttonここまで
+                //　右の余白20空ける
+                .padding(.trailing, 20)
+                // 下の余白を30空ける
+                .padding(.bottom, 30)
             }
         }
     }
