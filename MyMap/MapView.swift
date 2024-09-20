@@ -8,6 +8,12 @@
 import SwiftUI
 import MapKit
 
+enum MapType{
+    case standard //標準
+    case satellite //衛生写真
+    case hybrid //衛生写真＋交通機関ラベル
+}
+
 struct MapView: /*View*/UIViewRepresentable {
 //    var body: some View {
 //        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
